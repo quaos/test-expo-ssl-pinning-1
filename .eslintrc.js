@@ -28,9 +28,9 @@ module.exports = {
             typescript: {
                 project: path.join(__dirname, "tsconfig.json"),
             },
-            react: {
-                version: "detect",
-            },
+        },
+        react: {
+            version: "detect",
         },
     },
     rules: {
@@ -51,12 +51,14 @@ module.exports = {
                 caughtErrorsIgnorePattern: "^_",
             },
         ],
+        "prettier/prettier": "error",
         "react/function-component-definition": [
             "error",
             { namedComponents: "arrow-function", unnamedComponents: "arrow-function" },
         ],
         "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
         "react-native/no-color-literals": "warn",
+        "react-native/no-single-element-style-arrays": "off",
         "import/first": "warn",
         "import/newline-after-import": "warn",
         "import/order": [
