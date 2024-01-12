@@ -1,23 +1,49 @@
 {
   "name": "test-expo-ssl-pinning-1",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "main": "index.ts",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "lint": "eslint './**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix './**/*.{ts,tsx}'",
+    "doctor": "expo-doctor",
+    "start": "expo start --dev-client",
+    "go:android": "expo start --android",
+    "go:ios": "expo start --ios",
+    "go:web": "expo start --web",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
-    "react-native": "0.72.6"
+    "react-native": "0.72.6",
+    "expo-splash-screen": "~0.20.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.23.8",
+    "@types/eslint": "^8.56.2",
     "@types/react": "~18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.1.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "expo-doctor": "^1.3.0",
+    "prettier": "^3.1.1",
     "typescript": "^5.1.3"
   },
-  "private": true
+  "engines": {
+    "node": "20",
+    "yarn": "1"
+  }
 }
