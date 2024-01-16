@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import { Button } from "./components/Button";
 import { appConfig } from "./config/app.config";
 import { useApiClient } from "./hooks/useApiClient";
+import { useRemoteConfig } from "./hooks/useRemoteConfig";
 
 import type { GestureResponderEvent } from "react-native";
 
@@ -15,6 +16,18 @@ export const App = () => {
     const [error, setError] = useState<Error | undefined>();
     const [result, setResult] = useState<string | undefined>();
 
+    const {
+        config,
+        error: remoteConfigError,
+        isLoading: isRemoteConfigLoading,
+    } = useRemoteConfig();
+
+    useEffect(() => {
+        if (remoteConfigError) {
+            setError(remoteConfigError);
+        }
+    }, [remoteConfigError]);
+
     const handlePressQuery = (_evt: GestureResponderEvent) => {
         const queryAsync = async () => {
             setIsLoading(true);
@@ -24,7 +37,7 @@ export const App = () => {
                 const resp = await query();
                 setResult(resp ? `${resp.status} ${resp.statusText}` : undefined);
             } catch (err) {
-                console.error(err);
+                console.error(new Date().toISOString(), err);
                 setError(err as Error);
             }
             setIsLoading(false);
@@ -34,6 +47,9 @@ export const App = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.title}>
+                <Text style={styles.titleText}>{isRemoteConfigLoading ? "..." : config.title}</Text>
+            </View>
             <View style={styles.rowsContainer}>
                 <View style={styles.label}>
                     <Text>Target:</Text>
@@ -114,5 +130,15 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start",
         width: "100%",
+    },
+    title: {
+        display: "flex",
+        flexDirection: "row",
+        flexShrink: 1,
+        justifyContent: "center",
+    },
+    titleText: {
+        fontSize: 20,
+        fontWeight: "bold",
     },
 });

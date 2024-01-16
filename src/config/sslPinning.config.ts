@@ -8,6 +8,7 @@ export enum KeysetName {
 }
 
 const myDomainPlaceholder = "{{myDomain}}";
+
 const incorrectKeys = [
     // TEST: Dummy key
     "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
@@ -28,9 +29,37 @@ const pinningOptionsByKeysetMap: Record<KeysetName, PinningOptions> = {
                 "r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=",
             ],
         },
+        "google.com": {
+            includeSubdomains: true,
+            publicKeyHashes: [
+                // GTS CA 1C3 (exp 30 Sep 2027)
+                "zCTnfLwLKbS9S2sbp+uFz4KZOocFvXxkV06Ce9O5M2w=",
+                // GTS Root R1 (exp 28 Jan 2028)
+                "hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc=",
+            ],
+        },
+        // Firebase Remote Config
+        "firebaseremoteconfig.googleapis.com": {
+            includeSubdomains: false,
+            publicKeyHashes: [
+                // GTS CA 1C3 (exp 30 Sep 2027)
+                "zCTnfLwLKbS9S2sbp+uFz4KZOocFvXxkV06Ce9O5M2w=",
+                // GTS Root R1 (exp 28 Jan 2028)
+                "hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc=",
+            ],
+        },
     },
     [KeysetName.Incorrect]: {
         [myDomainPlaceholder]: {
+            includeSubdomains: true,
+            publicKeyHashes: incorrectKeys,
+        },
+        "google.com": {
+            includeSubdomains: true,
+            publicKeyHashes: incorrectKeys,
+        },
+        // Firebase Remote Config
+        "firebaseremoteconfig.googleapis.com": {
             includeSubdomains: true,
             publicKeyHashes: incorrectKeys,
         },
