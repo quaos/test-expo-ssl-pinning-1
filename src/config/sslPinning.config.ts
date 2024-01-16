@@ -20,8 +20,10 @@ const pinningOptionsByKeysetMap: Record<KeysetName, PinningOptions> = {
         [myDomainPlaceholder]: {
             includeSubdomains: true,
             publicKeyHashes: [
-                // DigiCert TLS Hybrid ECC SHA384 2020 CA1 (exp Sun, 13 Apr 2031)
-                "e0IRz5Tio3GA1Xs4fUVWmH1xHDiH2dMbVtCBSkOIdqM=",
+                // DigiCert Global G2 TLS RSA SHA256 2020 CA1 (exp Sat, 29 Mar 2031)
+                "Wec45nQiFwKvHtuHxSAMGkt19k+uPSw9JlEkxhvYPHk=",
+                // // DigiCert TLS Hybrid ECC SHA384 2020 CA1 (exp Sun, 13 Apr 2031)
+                // "e0IRz5Tio3GA1Xs4fUVWmH1xHDiH2dMbVtCBSkOIdqM=",
                 // DigiCert Global Root CA
                 "r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=",
             ],

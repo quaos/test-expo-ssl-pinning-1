@@ -3,6 +3,8 @@
     "name": "test-expo-ssl-pinning-1",
     "slug": "test-expo-ssl-pinning-1",
     "version": "1.0.0",
+    "sdkVersion": "49.0.0",
+    "runtimeVersion": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -27,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6d1cdc29-c1d6-4515-b480-7e19f7ce9e4c"
+      }
     }
   }
 }
