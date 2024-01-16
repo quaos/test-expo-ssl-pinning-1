@@ -4,6 +4,7 @@
       "source.fixAll.eslint": "explicit"
     },
     "eslint.validate": ["javascript","typescript"],
+    "java.configuration.updateBuildConfiguration": "automatic",
     "[javascript][typescript]": {
         "editor.codeActionsOnSave": {
             "source.fixAll.eslint": "explicit",

@@ -18,18 +18,23 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.quaos.test-expo-ssl-pinning-1"
+      "bundleIdentifier": "com.quaos.test-expo-ssl-pinning-1",
+      "googleServicesFile": "./ios/testexposslpinning1/GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "googleServicesFile": "./android/app/google-services.json",
       "package": "com.quaos.testexposslpinning1"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
     "extra": {
       "eas": {
         "projectId": "6d1cdc29-c1d6-4515-b480-7e19f7ce9e4c"

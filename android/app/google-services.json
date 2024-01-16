@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1073909137814",
+    "firebase_url": "https://qtestfirebase.firebaseio.com",
+    "project_id": "qtestfirebase",
+    "storage_bucket": "qtestfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073909137814:android:5243228b55e0e5c6575db7",
+        "android_client_info": {
+          "package_name": "com.quaos.testexposslpinning1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073909137814-sttf9udtb420t377am8r1h0ll1a5tlhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVdMAbfvwnpiAGfxLi_8-iNIQbgxceBiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073909137814-7hsike50gb95btea56rs18vkk0berrf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

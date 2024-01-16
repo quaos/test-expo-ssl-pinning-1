@@ -41,8 +41,18 @@ target 'testexposslpinning1' do
   use_expo_modules!
   config = use_native_modules!
 
+  # WORKAROUND: The Swift pod `FirebaseCoreInternal` depends upon `GoogleUtilities`, which does not define modules.
+  # To opt into those targets generating module maps (which is necessary to import them from Swift when building as static libraries), you may set `use_modular_headers!` globally in your Podfile
+  use_modular_headers!
+
+  #WORKAROUND: Thanks to https://stackoverflow.com/a/67809109/4119686
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
+
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
   use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
+
+  # right after `use_frameworks! :linkage => :static`
+  $RNFirebaseAsStaticFramework = true
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -54,7 +64,7 @@ target 'testexposslpinning1' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/..",
     # Note that if you have use_frameworks! enabled, Flipper will not work if enabled
-    :flipper_configuration => flipper_config
+    # :flipper_configuration => flipper_config
   )
 
   post_install do |installer|
