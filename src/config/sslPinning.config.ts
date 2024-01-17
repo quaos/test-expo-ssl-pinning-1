@@ -60,7 +60,7 @@ const pinningOptionsByKeysetMap: Record<KeysetName, PinningOptions> = {
         },
         // Firebase Remote Config
         "firebaseremoteconfig.googleapis.com": {
-            includeSubdomains: true,
+            includeSubdomains: false,
             publicKeyHashes: incorrectKeys,
         },
     },

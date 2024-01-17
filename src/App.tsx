@@ -6,11 +6,24 @@ import { Button } from "./components/Button";
 import { appConfig } from "./config/app.config";
 import { useApiClient } from "./hooks/useApiClient";
 import { useRemoteConfig } from "./hooks/useRemoteConfig";
+import { useAppInitializationStore, useAppReadyState } from "./store/appInitializationStore";
 
 import type { GestureResponderEvent } from "react-native";
 
 export const App = () => {
     const { query } = useApiClient();
+
+    const isSslPinningReady = useAppInitializationStore(
+        ({ isSslPinningReady }) => isSslPinningReady,
+    );
+    const isAppReady = useAppReadyState();
+
+    useEffect(() => {
+        console.debug(new Date().toISOString(), `${App.name}:`, {
+            appInitializationState: useAppInitializationStore.getState(),
+            isAppReady,
+        });
+    }, [isAppReady]);
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Error | undefined>();
@@ -19,8 +32,8 @@ export const App = () => {
     const {
         config,
         error: remoteConfigError,
-        isLoading: isRemoteConfigLoading,
-    } = useRemoteConfig();
+        // isLoading: isRemoteConfigLoading,
+    } = useRemoteConfig({ isEnabled: isSslPinningReady });
 
     useEffect(() => {
         if (remoteConfigError) {
@@ -37,7 +50,11 @@ export const App = () => {
                 const resp = await query();
                 setResult(resp ? `${resp.status} ${resp.statusText}` : undefined);
             } catch (err) {
-                console.error(new Date().toISOString(), err);
+                console.error(
+                    new Date().toISOString(),
+                    `${App.name}.${handlePressQuery.name}:`,
+                    err,
+                );
                 setError(err as Error);
             }
             setIsLoading(false);
@@ -45,10 +62,20 @@ export const App = () => {
         void queryAsync();
     };
 
+    if (!isAppReady) {
+        return (
+            <View style={styles.container}>
+                <View style={styles.title}>
+                    <Text style={styles.titleText}>Loading...</Text>
+                </View>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.title}>
-                <Text style={styles.titleText}>{isRemoteConfigLoading ? "..." : config.title}</Text>
+                <Text style={styles.titleText}>{config.title}</Text>
             </View>
             <View style={styles.rowsContainer}>
                 <View style={styles.label}>

@@ -3,10 +3,19 @@ import { initializeSslPinning, isSslPinningAvailable } from "react-native-ssl-pu
 
 import { App } from "./src/App";
 import { sslPinningConfig } from "./src/config/sslPinning.config";
+import { useAppInitializationStore } from "./src/store/appInitializationStore";
 
 const initSslPinningAsync = async () => {
     try {
-        if (!isSslPinningAvailable()) {
+        // const [setIsSslPinningAvailable, setIsSslPinningReady] = useAppInitializationStore(
+        //     ({ setIsSslPinningAvailable, setIsSslPinningReady }) => [
+        //         setIsSslPinningAvailable,
+        //         setIsSslPinningReady,
+        //     ],
+        // );
+        const isAvailable = isSslPinningAvailable();
+        useAppInitializationStore.setState({ isSslPinningAvailable: isAvailable });
+        if (!isAvailable) {
             throw new Error("No SSL Pinning available!");
         }
         const sslPinningOptions = sslPinningConfig.getPinningOptions();
@@ -16,8 +25,9 @@ const initSslPinningAsync = async () => {
             sslPinningOptions,
         );
         await initializeSslPinning(sslPinningOptions);
+        useAppInitializationStore.setState({ isSslPinningReady: true });
     } catch (err) {
-        console.error(new Date().toISOString(), err);
+        console.error(new Date().toISOString(), `${initSslPinningAsync.name}:`, err);
     }
 };
 void initSslPinningAsync();

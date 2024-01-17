@@ -1,6 +1,8 @@
 import remoteConfig from "@react-native-firebase/remote-config";
 import { useCallback, useEffect, useState } from "react";
 
+import { useAppInitializationStore } from "../store/appInitializationStore";
+
 import type { FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
 
 export interface RemoteConfigType extends FirebaseRemoteConfigTypes.ConfigDefaults {
@@ -11,6 +13,10 @@ const defaultConfig: RemoteConfigType = {
     title: "Untitled",
 };
 
+export interface UseRemoteConfigOptions {
+    isEnabled?: boolean;
+}
+
 export interface UseRemoteConfigState {
     config: RemoteConfigType;
     error: Error | undefined;
@@ -18,7 +24,13 @@ export interface UseRemoteConfigState {
     reload: () => Promise<void>;
 }
 
-export const useRemoteConfig = (): UseRemoteConfigState => {
+export const useRemoteConfig = ({
+    isEnabled = true,
+}: UseRemoteConfigOptions = {}): UseRemoteConfigState => {
+    const setIsRemoteConfigReady = useAppInitializationStore(
+        ({ setIsRemoteConfigReady }) => setIsRemoteConfigReady,
+    );
+
     const [config, setConfig] = useState(defaultConfig);
     const [error, setError] = useState<Error | undefined>();
     const [isLoading, setIsLoading] = useState(false);
@@ -41,16 +53,21 @@ export const useRemoteConfig = (): UseRemoteConfigState => {
             await remoteConfig().fetch();
             console.debug(
                 new Date().toISOString(),
-                `${useRemoteConfig.name}.${reloadAsync.name}: lastFetchStatus:`,
-                remoteConfig().lastFetchStatus,
+                `${useRemoteConfig.name}.${reloadAsync.name}:`,
+                { lastFetchStatus: remoteConfig().lastFetchStatus },
             );
             updateConfigValues();
+            setIsRemoteConfigReady(true);
         } catch (err) {
-            console.error(new Date().toISOString(), err);
+            console.error(
+                new Date().toISOString(),
+                `${useRemoteConfig.name}.${reloadAsync.name}:`,
+                err,
+            );
             setError(err as Error);
         }
         setIsLoading(false);
-    }, [isLoading]);
+    }, [isLoading, setIsRemoteConfigReady]);
 
     useEffect(() => {
         const initAsync = async () => {
@@ -62,30 +79,43 @@ export const useRemoteConfig = (): UseRemoteConfigState => {
                     minimumFetchIntervalMillis: 1000,
                 });
 
-                const isSuccess = await remoteConfig().fetchAndActivate();
-                if (isSuccess) {
+                const isFetched = await remoteConfig().fetchAndActivate();
+                if (isFetched) {
                     console.debug(
                         new Date().toISOString(),
-                        `${useRemoteConfig.name}.${initAsync.name}: lastFetchStatus:`,
-                        remoteConfig().lastFetchStatus,
+                        `${useRemoteConfig.name}.${initAsync.name}:`,
+                        { lastFetchStatus: remoteConfig().lastFetchStatus },
                     );
-                    console.debug(
-                        new Date().toISOString(),
-                        `${useRemoteConfig.name}.${initAsync.name}: getAll:`,
-                        remoteConfig().getAll(),
-                    );
-                    updateConfigValues();
                 } else {
-                    console.log(new Date().toISOString(), "No new Remote Config fetched");
+                    console.log(
+                        new Date().toISOString(),
+                        `${useRemoteConfig.name}.${initAsync.name}: No new Remote Config fetched`,
+                    );
                 }
+                console.debug(
+                    new Date().toISOString(),
+                    `${useRemoteConfig.name}.${initAsync.name}: getAll:`,
+                    remoteConfig().getAll(),
+                );
+                updateConfigValues();
+                setIsRemoteConfigReady(true);
             } catch (err) {
-                console.error(new Date().toISOString(), err);
+                console.error(
+                    new Date().toISOString(),
+                    `${useRemoteConfig.name}.${initAsync.name}:`,
+                    err,
+                );
                 setError(err as Error);
             }
             setIsLoading(false);
         };
-        void initAsync();
-    }, []);
+
+        console.debug(new Date().toISOString(), `${useRemoteConfig.name}:`, { isEnabled });
+        if (isEnabled) {
+            void initAsync();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isEnabled]);
 
     return {
         config,
