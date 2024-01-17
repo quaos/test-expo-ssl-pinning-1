@@ -33,7 +33,30 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "@react-native-firebase/app"
+      "@react-native-firebase/app",
+      [
+        "@braze/expo-plugin",
+        {
+          "androidApiKey": "YOUR-ANDROID-API-KEY",
+          "iosApiKey": "YOUR-IOS-API-KEY",
+          "baseUrl": "mock-braze.local",
+          "sessionTimeout": 60,
+          "enableGeofence": false,
+          "enableBrazeIosPush": false,
+          "enableFirebaseCloudMessaging": false,
+          "firebaseCloudMessagingSenderId": "YOUR-FCM-SENDER-ID",
+          "androidHandlePushDeepLinksAutomatically": true,
+          "enableSdkAuthentication": false,
+          "logLevel": 0,
+          "minimumTriggerIntervalInSeconds": 0,
+          "enableAutomaticLocationCollection": false,
+          "enableAutomaticGeofenceRequests": false,
+          "dismissModalOnOutsideTap": true,
+          "androidPushNotificationHtmlRenderingEnabled": true,
+          "androidNotificationAccentColor": "#ff3344",
+          "iosRequestPushPermissionsAutomatically": false
+        }
+      ]
     ],
     "extra": {
       "eas": {

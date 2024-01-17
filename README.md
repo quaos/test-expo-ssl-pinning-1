@@ -28,7 +28,17 @@ yarn android
 yarn android:incorrect
 ```
 
+## Braze SDK
+
+* Configuration is in file: `app.json` in section: `plugins` -> `@braze/expo-plugin`
+* After modifying the config above, the native config files need to be re-generated:
+
+```shell
+npx expo prebuild
+```
+
 ## Refs
 
 * [react-native-ssl-public-key-pinning](https://github.com/frw/react-native-ssl-public-key-pinning)
 * [react-native-firebase](https://rnfirebase.io/)
+* [Braze - React Native - Initial SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/react_sdk_setup/)

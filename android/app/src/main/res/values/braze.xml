@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="com_braze_internal_sdk_metadata">
+<item>GRADLE</item>
+</string-array>
+
+  <string translatable="false" name="com_braze_api_key">YOUR-ANDROID-API-KEY</string>
+  <string translatable="false" name="com_braze_custom_endpoint">mock-braze.local</string>
+  <integer name="com_braze_session_timeout">60</integer>
+  <bool name="com_braze_geofences_enabled">false</bool>
+  <bool name="com_braze_firebase_cloud_messaging_registration_enabled">false</bool>
+  <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">YOUR-FCM-SENDER-ID</string>
+  <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
+  <bool name="com_braze_sdk_authentication_enabled">false</bool>
+  <integer name="com_braze_logger_initial_log_level">0</integer>
+  <integer name="com_braze_trigger_action_minimum_time_interval_seconds">0</integer>
+  <bool name="com_braze_enable_location_collection">false</bool>
+  <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
+  <bool name="com_braze_push_notification_html_rendering_enabled">true</bool>
+  <color name="com_braze_default_notification_accent_color">#ff3344</color>
+</resources>

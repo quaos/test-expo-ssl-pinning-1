@@ -1174,6 +1174,16 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@braze/expo-plugin@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@braze/expo-plugin/-/expo-plugin-1.2.0.tgz#d298af77601e02fcc6b408a024148a46953d50ec"
+  integrity sha512-2Q86Z+4GDaIzxEPy2PtoAwOIL3FTnQte7LIC51ZFwCwCYAiu6rvI49n65tyq/CpKo4AWn9O2NN8iOlI5lApHMA==
+
+"@braze/react-native-sdk@^8.2.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@braze/react-native-sdk/-/react-native-sdk-8.3.0.tgz#b53aa403183d36d18ba6f749bea58fc16f3dd3c6"
+  integrity sha512-48nkOdymoJCnxe7uq4lw8qupCXMoBXaug66CEdKtShqthBMuPvDL0GpPPYIa8jbw7nq8HMS4yl8z+GNandgqsg==
+
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
