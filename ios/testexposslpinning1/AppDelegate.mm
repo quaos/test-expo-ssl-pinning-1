@@ -8,10 +8,25 @@
 
 // #import <Firebase.h>
 
+#import "BrazeReactUtils.h"
+#import "BrazeReactBridge.h"
+// #import "BrazeReactDelegate.h"
+
+#import <BrazeKit/BrazeKit-Swift.h>
+#import <BrazeLocation/BrazeLocation-Swift.h>
+
 @implementation AppDelegate
+
+@synthesize bridge;
 
 static NSDictionary *const googleMapsConfig = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GoogleMaps"];
 // static NSString *const googleMapsApiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GoogleMapsApiKey"];
+
+static Braze *_brazeInstance;
+
+static NSDictionary *const brazeConfig = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Braze"];
+// static NSString *const brazeEndpoint = [brazeConfig valueForKeyPath:@"Endpoint"];
+// static NSString *const brazeApiKey = [brazeConfig valueForKeyPath:@"ApiKey"];
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,13 +38,15 @@ static NSDictionary *const googleMapsConfig = [[NSBundle mainBundle] objectForIn
 
   NSLog(@"AppDelegate.didFinishLaunchingWithOptions: %@", launchOptions);
 
+  // Uncomment this line to use the test key instead of the live one.
+  // [RNBranch useTestInstance];
+  [RNBranch initSessionWithLaunchOptions:launchOptions isReferrable:YES];
+
   [AppDelegate initGoogleMaps];
 
   [FIRApp configure];
 
-  // Uncomment this line to use the test key instead of the live one.
-  // [RNBranch useTestInstance];
-  [RNBranch initSessionWithLaunchOptions:launchOptions isReferrable:YES];
+  [AppDelegate initBraze:launchOptions];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -74,6 +91,30 @@ static NSDictionary *const googleMapsConfig = [[NSBundle mainBundle] objectForIn
 
 + (void) initGoogleMaps {
   [GMSServices provideAPIKey:[googleMapsConfig valueForKeyPath:@"ApiKey"]];
+}
+
++ (Braze *)braze {
+  return _brazeInstance;
+}
+
++ (void) initBraze:(NSDictionary *)launchOptions {
+  NSLog(@"AppDelegate.initBraze: brazeConfig: %@", brazeConfig);
+
+  NSString *brazeEndpoint = [brazeConfig valueForKeyPath:@"Endpoint"];
+  NSString *brazeApiKey = [brazeConfig valueForKeyPath:@"ApiKey"];
+
+  BRZConfiguration *brazeConfigImpl = [[BRZConfiguration alloc] initWithApiKey:brazeApiKey endpoint:brazeEndpoint];
+  brazeConfigImpl.triggerMinimumTimeInterval = 1;
+  brazeConfigImpl.logger.level = BRZLoggerLevelDebug; // [brazeConfig valueForKeyPath:@"LogLevel"]; // 
+  brazeConfigImpl.location.brazeLocationProvider = [[BrazeLocationProvider alloc] init];
+  brazeConfigImpl.location.automaticLocationCollection = [brazeConfig valueForKeyPath:@"EnableAutomaticLocationCollection"]; // YES;
+  brazeConfigImpl.location.geofencesEnabled = [brazeConfig valueForKeyPath:@"EnableGeofence"]; // YES;
+  // brazeConfigImpl.location.automaticGeofenceRequests = YES;
+  Braze *braze = [BrazeReactBridge initBraze:brazeConfigImpl];
+  // braze.delegate = [[BrazeReactDelegate alloc] init];
+  _brazeInstance = braze;
+  // [self registerForPushNotifications];
+  [[BrazeReactUtils sharedInstance] populateInitialUrlFromLaunchOptions:launchOptions];
 }
 
 @end

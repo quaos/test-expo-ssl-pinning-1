@@ -19,8 +19,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@braze/expo-plugin": "^1.2.0",
-    "@braze/react-native-sdk": "^8.2.0",
+    "@braze/react-native-sdk": "2.1.0",
     "@expo/webpack-config": "^19.0.0",
     "@react-native-firebase/analytics": "^18.7.3",
     "@react-native-firebase/app": "^18.7.3",
