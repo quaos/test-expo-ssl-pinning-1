@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import <Firebase/Firebase.h>
+#import <RNBranch/RNBranch.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
@@ -19,6 +20,10 @@
   NSLog(@"AppDelegate.didFinishLaunchingWithOptions: %@", launchOptions);
 
   [FIRApp configure];
+
+  // Uncomment this line to use the test key instead of the live one.
+  // [RNBranch useTestInstance];
+  [RNBranch initSessionWithLaunchOptions:launchOptions isReferrable:YES];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
