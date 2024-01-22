@@ -2,6 +2,12 @@
 
 Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 
+## Current Test Results
+
+✅ Base App (Expo 49 + RN 0.72 + RN SSL Pinning 1.1.3 + TrustKit 3.0.3)
+✅ Firebase (RN Firebase App 18.7.3 + Analytics 18.7.3 + Remote Config 18.7.3)
+✅ Braze (Braze RN SDK 8.3.0 + Braze Expo Plugin 1.2.0)
+
 ## Preparing
 
 ```shell
