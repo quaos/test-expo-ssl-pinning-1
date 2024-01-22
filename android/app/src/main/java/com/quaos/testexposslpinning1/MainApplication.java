@@ -16,7 +16,8 @@ import com.facebook.soloader.SoLoader;
 import expo.modules.ApplicationLifecycleDispatcher;
 import expo.modules.ReactNativeHostWrapper;
 
-import io.branch.referral.Branch;
+import io.branch.rnbranch.RNBranchModule;
+// import io.branch.referral.Branch;
 
 import java.util.List;
 
@@ -63,11 +64,13 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
 
-    // Branch logging for debugging
-    Branch.enableLogging();
-
-    // Branch object initialization
-    Branch.getAutoInstance(this);
+    // Branch
+    RNBranchModule.enableLogging();
+    RNBranchModule.getAutoInstance(this);
+    // // Branch logging for debugging
+    // Branch.enableLogging();
+    // // Branch object initialization
+    // Branch.getAutoInstance(this);
     
     SoLoader.init(this, /* native exopackage */ false);
     if (!BuildConfig.REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS) {
