@@ -25,6 +25,8 @@ PODS:
     - braze-react-native-sdk
     - ExpoModulesCore
     - React-Core
+  - ExpoDevice (5.4.0):
+    - ExpoModulesCore
   - ExpoKeepAwake (12.3.0):
     - ExpoModulesCore
   - ExpoModulesCore (1.5.12):
@@ -570,6 +572,12 @@ PODS:
     - Firebase/RemoteConfig (= 10.19.0)
     - React-Core
     - RNFBApp
+  - RNSentry (5.10.0):
+    - React-Core
+    - Sentry/HybridSDK (= 8.11.0)
+  - Sentry/HybridSDK (8.11.0):
+    - SentryPrivate (= 8.11.0)
+  - SentryPrivate (8.11.0)
   - SocketRocket (0.6.1)
   - TrustKit (3.0.3)
   - Yoga (1.14.0)
@@ -584,6 +592,7 @@ DEPENDENCIES:
   - EXFont (from `../node_modules/expo-font/ios`)
   - Expo (from `../node_modules/expo`)
   - "ExpoAdapterBraze (from `../node_modules/@braze/expo-plugin/ios`)"
+  - ExpoDevice (from `../node_modules/expo-device/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
@@ -629,6 +638,7 @@ DEPENDENCIES:
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBRemoteConfig (from `../node_modules/@react-native-firebase/remote-config`)"
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -650,6 +660,8 @@ SPEC REPOS:
     - libevent
     - nanopb
     - PromisesObjC
+    - Sentry
+    - SentryPrivate
     - SocketRocket
     - TrustKit
 
@@ -672,6 +684,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo"
   ExpoAdapterBraze:
     :path: "../node_modules/@braze/expo-plugin/ios"
+  ExpoDevice:
+    :path: "../node_modules/expo-device/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
   ExpoModulesCore:
@@ -759,6 +773,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBRemoteConfig:
     :path: "../node_modules/@react-native-firebase/remote-config"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -775,6 +791,7 @@ SPEC CHECKSUMS:
   EXFont: 738c44c390953ebcbab075a4848bfbef025fd9ee
   Expo: 61a8e1aa94311557c137c0a4dfd4fe78281cfbb4
   ExpoAdapterBraze: e694db35cd38358788c30f33e012b7e5511d7574
+  ExpoDevice: 1c1b0c9cad96c292c1de73948649cfd654b2b3c0
   ExpoKeepAwake: be4cbd52d9b177cde0fd66daa1913afa3161fc1d
   ExpoModulesCore: c480fd4e3c7c8e81f0a6ba3a7c56869f25fe016d
   EXSplashScreen: c0e7f2d4a640f3b875808ed0b88575538daf6d82
@@ -832,6 +849,9 @@ SPEC CHECKSUMS:
   RNFBAnalytics: fdecb8b774abd12f9ed79675794159d1a0fadc6c
   RNFBApp: 5ee688b07ed0fa692a3a8fd07df6d6ae41e4c3a0
   RNFBRemoteConfig: dc5418251c49d2f40edfd76cc935d2c36b8331b0
+  RNSentry: 11917f7bf3e28806aca4c2791c6ba7522d8f09fe
+  Sentry: 39d57e691e311bdb73bc1ab5bbebbd6bc890050d
+  SentryPrivate: 48712023cdfd523735c2edb6b06bedf26c4730a3
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   TrustKit: 7858ea59d0e226b1457b2e9cc8b95d77ab21d471
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603

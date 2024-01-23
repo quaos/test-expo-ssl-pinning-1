@@ -1,14 +1,31 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import * as Sentry from "sentry-expo";
 
 import { Button } from "./components/Button";
 import { appConfig } from "./config/app.config";
+import { sentryConfig } from "./config/sentry.config";
 import { useApiClient } from "./hooks/useApiClient";
 import { useRemoteConfig } from "./hooks/useRemoteConfig";
 import { useAppInitializationStore, useAppReadyState } from "./store/appInitializationStore";
 
 import type { GestureResponderEvent } from "react-native";
+
+const sentryInitOpts = {
+    debug: sentryConfig.isDebugEnabled,
+    dsn: sentryConfig.dsn,
+    enableInExpoDevelopment: sentryConfig.isDebugEnabled,
+    environment: sentryConfig.environment,
+    integrations: [
+        //   new Sentry.Native.ReactNativeTracing({
+        //     routingInstrumentation,
+        //   }),
+    ],
+    tracesSampleRate: sentryConfig.tracesSampleRate,
+};
+console.debug(new Date().toISOString(), "App.tsx: Initializing Sentry:", sentryInitOpts);
+Sentry.init(sentryInitOpts);
 
 export const App = () => {
     const { query } = useApiClient();
