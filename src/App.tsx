@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+import Braze from "@braze/react-native-sdk";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
@@ -11,6 +13,10 @@ import { useRemoteConfig } from "./hooks/useRemoteConfig";
 import { useAppInitializationStore, useAppReadyState } from "./store/appInitializationStore";
 
 import type { GestureResponderEvent } from "react-native";
+
+Braze.subscribeToInAppMessage(true, evt => {
+    console.debug(new Date().toISOString(), "App.tsx: Got Braze message:", evt);
+});
 
 const sentryInitOpts = {
     debug: sentryConfig.isDebugEnabled,
