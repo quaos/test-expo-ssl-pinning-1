@@ -8,6 +8,7 @@ Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 * ✅ Firebase (RN Firebase App 18.7.3 + Analytics 18.7.3 + Remote Config 18.7.3)
 * ✅ Braze (Braze RN SDK 8.3.0 + Braze Expo Plugin 1.2.0)
 * ✅ Branch (RN Branch SDK 5.6.2 + Branch SDK for iOS 1.43.2 + Branch SDK for Android 5.2.5)
+* ✅ Sentry (Sentry Expo 7.1.1)
 
 ## Preparing
 
@@ -51,3 +52,5 @@ npx expo prebuild
 * [Braze - React Native - Initial SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/react_sdk_setup/)
 * [Branch.io - React Native](https://help.branch.io/developers-hub/docs/react-native)
 * [Branch.io - Native SDKs Overview](https://help.branch.io/developers-hub/docs/native-sdks-overview)
+* [Expo - Using Sentry](https://docs.expo.dev/guides/using-sentry/)
+

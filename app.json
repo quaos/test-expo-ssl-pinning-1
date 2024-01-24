@@ -56,7 +56,8 @@
           "androidNotificationAccentColor": "#ff3344",
           "iosRequestPushPermissionsAutomatically": false
         }
-      ]
+      ],
+      "sentry-expo"
     ],
     "extra": {
       "eas": {
