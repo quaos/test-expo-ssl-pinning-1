@@ -9,6 +9,7 @@ Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 * ✅ Braze (Braze RN SDK 8.3.0 + Braze Expo Plugin 1.2.0)
 * ✅ Branch (RN Branch SDK 5.6.2 + Branch SDK for iOS 1.43.2 + Branch SDK for Android 5.2.5)
 * ✅ Sentry (Sentry Expo 7.1.1)
+* ✅ Google Maps (RN Maps 1.7.1 + Google Maps SDK for iOS 7.4.0 + GMS Google Services for Android 4.4.0)
 
 ## Preparing
 
@@ -45,6 +46,11 @@ yarn android:incorrect
 npx expo prebuild
 ```
 
+## Google Maps
+
+* iOS configuration is in file: `ios/testexposslpinning1/Info.plist`, section: `GoogleMaps`
+* Android configuration is in file: `android/app/src/main/AndroidManifest.xml`, keys: `com.google.android.geo.*`
+
 ## Refs
 
 * [react-native-ssl-public-key-pinning](https://github.com/frw/react-native-ssl-public-key-pinning)
@@ -53,4 +59,4 @@ npx expo prebuild
 * [Branch.io - React Native](https://help.branch.io/developers-hub/docs/react-native)
 * [Branch.io - Native SDKs Overview](https://help.branch.io/developers-hub/docs/native-sdks-overview)
 * [Expo - Using Sentry](https://docs.expo.dev/guides/using-sentry/)
-
+* [react-native-maps](https://github.com/react-native-maps/react-native-maps)
