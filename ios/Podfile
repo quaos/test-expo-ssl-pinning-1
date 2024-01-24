@@ -41,6 +41,10 @@ target 'testexposslpinning1' do
   use_expo_modules!
   config = use_native_modules!
 
+  pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/Simon-TechForm/google-maps-ios-utils.git', :branch => 'feat/support-apple-silicon'
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+  
   # WORKAROUND: The Swift pod `FirebaseCoreInternal` depends upon `GoogleUtilities`, which does not define modules.
   # To opt into those targets generating module maps (which is necessary to import them from Swift when building as static libraries), you may set `use_modular_headers!` globally in your Podfile
   use_modular_headers!

@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import <Firebase/Firebase.h>
+#import <GoogleMaps/GoogleMaps.h>
 #import <RNBranch/RNBranch.h>
 
 #import <React/RCTBundleURLProvider.h>
@@ -8,6 +9,9 @@
 // #import <Firebase.h>
 
 @implementation AppDelegate
+
+static NSDictionary *const googleMapsConfig = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GoogleMaps"];
+// static NSString *const googleMapsApiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GoogleMapsApiKey"];
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -18,6 +22,8 @@
   self.initialProps = @{};
 
   NSLog(@"AppDelegate.didFinishLaunchingWithOptions: %@", launchOptions);
+
+  [AppDelegate initGoogleMaps];
 
   [FIRApp configure];
 
@@ -64,6 +70,10 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
   return [super application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
++ (void) initGoogleMaps {
+  [GMSServices provideAPIKey:[googleMapsConfig valueForKeyPath:@"ApiKey"]];
 }
 
 @end

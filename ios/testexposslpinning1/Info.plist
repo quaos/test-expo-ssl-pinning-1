@@ -58,6 +58,11 @@
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>
+    <key>GoogleMaps</key>
+    <dict>
+      <key>ApiKey</key>
+      <string>MOCK-GMS-API-KEY</string>
+    </dict>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -73,6 +78,8 @@
         </dict>
       </dict>
     </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Needed only for testing Google Maps library effect on SSL pinning</string>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>
