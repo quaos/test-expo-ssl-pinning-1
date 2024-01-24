@@ -39,8 +39,8 @@ yarn android:incorrect
 
 ## Braze SDK
 
-* Configuration is in file: `app.json` in section: `plugins` -> `@braze/expo-plugin`
-* After modifying the config above, the native config files need to be re-generated:
+* iOS Configuration is in file: `ios/testexposslpinning1/Info.plist` in section: `<Braze>...<Braze>`
+* Android Configuration is in file: `android/app/src/main/res/values/braze.xml`
 
 ```shell
 npx expo prebuild
