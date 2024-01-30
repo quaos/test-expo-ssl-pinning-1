@@ -11,7 +11,8 @@ Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 * ✅ Sentry (Sentry Expo 7.1.1)
 * ✅ Google Maps (RN Maps 1.7.1 + Google Maps SDK for iOS 7.4.0 + GMS Google Services for Android 4.4.0)
 * ❌ Expo Dev Client (expo-dev-client 2.4.12)
-* ✅ Expo Dev Client (expo-dev-client 2.2.1)
+* ✅ Expo Dev Client (expo-dev-client 2.2.1) on iOS
+* ❌ Expo Dev Client (expo-dev-client 2.2.1) on Android
 
 ## Preparing
 
@@ -37,6 +38,22 @@ yarn android
 
 # Android - with INCORRECT pinning keys
 yarn android:incorrect
+```
+
+## Expo Dev Client
+
+* Currently there are incompatibilities with Android - the app crashes on start with this error:
+```
+java.lang.RuntimeException: Unable to start activity ComponentInfo{com.quaos.testexposslpinning1/expo.modules.devmenu.DevMenuActivity}: kotlin.UninitializedPropertyAccessException: lateinit property rootView has not been initialized
+  android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3645)
+  android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3782)
+  ...
+Caused by kotlin.UninitializedPropertyAccessException: lateinit property rootView has not been initialized
+  expo.modules.devmenu.DevMenuActivity$createReactActivityDelegate$1.loadApp(DevMenuActivity.kt:45)
+  com.facebook.react.ReactActivityDelegate.onCreate(ReactActivityDelegate.java:109)
+  com.facebook.react.ReactActivity.onCreate(ReactActivity.java:46)
+  android.app.Activity.performCreate(Activity.java:8305)
+  ...
 ```
 
 ## Braze SDK
