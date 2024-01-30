@@ -12,6 +12,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2262B5702B56343A009CF5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2262B56F2B56343A009CF5D7 /* GoogleService-Info.plist */; };
+		22E12C492B677BF0001A1B3E /* RCTHTTPRequestHandler+TestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E12C482B677BF0001A1B3E /* RCTHTTPRequestHandler+TestDelegate.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-testexposslpinning1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-testexposslpinning1.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
@@ -26,6 +27,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = testexposslpinning1/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = testexposslpinning1/main.m; sourceTree = "<group>"; };
 		2262B56F2B56343A009CF5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "testexposslpinning1/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22E12C482B677BF0001A1B3E /* RCTHTTPRequestHandler+TestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTHTTPRequestHandler+TestDelegate.m"; path = "testexposslpinning1/RCTHTTPRequestHandler+TestDelegate.m"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-testexposslpinning1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testexposslpinning1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-testexposslpinning1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testexposslpinning1.debug.xcconfig"; path = "Target Support Files/Pods-testexposslpinning1/Pods-testexposslpinning1.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-testexposslpinning1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testexposslpinning1.release.xcconfig"; path = "Target Support Files/Pods-testexposslpinning1/Pods-testexposslpinning1.release.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		13B07FAE1A68108700A75B9A /* testexposslpinning1 */ = {
 			isa = PBXGroup;
 			children = (
+				22E12C482B677BF0001A1B3E /* RCTHTTPRequestHandler+TestDelegate.m */,
 				2262B56F2B56343A009CF5D7 /* GoogleService-Info.plist */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				22E12C492B677BF0001A1B3E /* RCTHTTPRequestHandler+TestDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
 				098F8E21AA34450D990A484D /* noop-file.swift in Sources */,
@@ -490,10 +494,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
@@ -553,10 +554,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
