@@ -10,6 +10,7 @@ Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 * ✅ Branch (RN Branch SDK 5.6.2 + Branch SDK for iOS 1.43.2 + Branch SDK for Android 5.2.5)
 * ✅ Sentry (Sentry Expo 7.1.1)
 * ✅ Google Maps (RN Maps 1.7.1 + Google Maps SDK for iOS 7.4.0 + GMS Google Services for Android 4.4.0)
+* ❌ Expo Dev Client (expo-dev-client 2.4.12)
 
 ## Preparing
 
