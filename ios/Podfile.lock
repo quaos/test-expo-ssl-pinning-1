@@ -20,8 +20,53 @@ PODS:
     - ExpoModulesCore
   - EXFont (11.4.0):
     - ExpoModulesCore
+  - EXJSONUtils (0.6.0)
+  - EXManifests (0.6.0):
+    - ExpoModulesCore
   - Expo (49.0.21):
     - ExpoModulesCore
+  - expo-dev-client (2.3.0):
+    - EXManifests
+    - expo-dev-launcher
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - EXUpdatesInterface
+  - expo-dev-launcher (2.3.0):
+    - EXManifests
+    - expo-dev-launcher/Main (= 2.3.0)
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - React-Core
+  - expo-dev-launcher/Main (2.3.0):
+    - EXManifests
+    - expo-dev-launcher/Unsafe
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - React-Core
+  - expo-dev-launcher/Unsafe (2.3.0):
+    - EXManifests
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - React-Core
+  - expo-dev-menu (3.0.0):
+    - expo-dev-menu/Main (= 3.0.0)
+  - expo-dev-menu-interface (1.2.0)
+  - expo-dev-menu/Main (3.0.0):
+    - EXManifests
+    - expo-dev-menu-interface
+    - expo-dev-menu/Vendored
+    - ExpoModulesCore
+    - React-Core
+  - expo-dev-menu/SafeAreaView (3.0.0):
+    - ExpoModulesCore
+  - expo-dev-menu/Vendored (3.0.0):
+    - expo-dev-menu/SafeAreaView
   - ExpoAdapterBraze (1.2.0):
     - braze-react-native-sdk
     - ExpoModulesCore
@@ -40,6 +85,7 @@ PODS:
     - ExpoModulesCore
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - EXUpdatesInterface (0.9.3)
   - FBLazyVector (0.72.6)
   - FBReactNativeSpec (0.72.6):
     - RCT-Folly (= 2021.07.22.00)
@@ -624,12 +670,19 @@ DEPENDENCIES:
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
+  - EXJSONUtils (from `../node_modules/expo-json-utils/ios`)
+  - EXManifests (from `../node_modules/expo-manifests/ios`)
   - Expo (from `../node_modules/expo`)
+  - expo-dev-client (from `../node_modules/expo-dev-client/ios`)
+  - expo-dev-launcher (from `../node_modules/expo-dev-launcher`)
+  - expo-dev-menu (from `../node_modules/expo-dev-menu`)
+  - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
   - "ExpoAdapterBraze (from `../node_modules/@braze/expo-plugin/ios`)"
   - ExpoDevice (from `../node_modules/expo-device/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
+  - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -720,8 +773,20 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-file-system/ios"
   EXFont:
     :path: "../node_modules/expo-font/ios"
+  EXJSONUtils:
+    :path: "../node_modules/expo-json-utils/ios"
+  EXManifests:
+    :path: "../node_modules/expo-manifests/ios"
   Expo:
     :path: "../node_modules/expo"
+  expo-dev-client:
+    :path: "../node_modules/expo-dev-client/ios"
+  expo-dev-launcher:
+    :path: "../node_modules/expo-dev-launcher"
+  expo-dev-menu:
+    :path: "../node_modules/expo-dev-menu"
+  expo-dev-menu-interface:
+    :path: "../node_modules/expo-dev-menu-interface/ios"
   ExpoAdapterBraze:
     :path: "../node_modules/@braze/expo-plugin/ios"
   ExpoDevice:
@@ -732,6 +797,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-modules-core"
   EXSplashScreen:
     :path: "../node_modules/expo-splash-screen/ios"
+  EXUpdatesInterface:
+    :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -844,12 +911,19 @@ SPEC CHECKSUMS:
   EXConstants: ce5bbea779da8031ac818c36bea41b10e14d04e1
   EXFileSystem: f8b838a880254de42a5a7da20ed5ce12e2697c1b
   EXFont: 738c44c390953ebcbab075a4848bfbef025fd9ee
+  EXJSONUtils: babb80f7eab885b0135ae00b633d2d52b4a44fff
+  EXManifests: 37a0bb3514806cf432f6538fcc9825107fc23436
   Expo: 61a8e1aa94311557c137c0a4dfd4fe78281cfbb4
+  expo-dev-client: b9a1eefeb4c93677753c734ad72072db3404caf9
+  expo-dev-launcher: 3439b93957f81594dae1bcc071679be09dcf5df7
+  expo-dev-menu: 4b131e68ea69510870efa44659f1f9ddc7b9621b
+  expo-dev-menu-interface: f74523f940ba5306b0d2f37a488a77b44d57f572
   ExpoAdapterBraze: e694db35cd38358788c30f33e012b7e5511d7574
   ExpoDevice: 1c1b0c9cad96c292c1de73948649cfd654b2b3c0
   ExpoKeepAwake: be4cbd52d9b177cde0fd66daa1913afa3161fc1d
   ExpoModulesCore: c480fd4e3c7c8e81f0a6ba3a7c56869f25fe016d
   EXSplashScreen: c0e7f2d4a640f3b875808ed0b88575538daf6d82
+  EXUpdatesInterface: e86394c0770f14eb96386cbb32be83fa6a97e8f9
   FBLazyVector: 748c0ef74f2bf4b36cfcccf37916806940a64c32
   FBReactNativeSpec: 966f29e4e697de53a3b366355e8f57375c856ad9
   Firebase: 63ce8ece0d43743dc28eacac0c6867a2d7fd5a9d
