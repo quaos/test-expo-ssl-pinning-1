@@ -10,7 +10,7 @@ Expo App that's supposed to test & reproduce SSL Pinning issues, esp. in iOS
 * ✅ Branch (RN Branch SDK 5.6.2 + Branch SDK for iOS 1.43.2 + Branch SDK for Android 5.2.5)
 * ✅ Sentry (Sentry Expo 7.1.1)
 * ✅ Google Maps (RN Maps 1.7.1 + Google Maps SDK for iOS 7.4.0 + GMS Google Services for Android 4.4.0)
-* ❌ Expo Dev Client (expo-dev-client 2.4.12)
+* ❌ Expo Dev Client (expo-dev-client 2.3.0) -- Build error on iOS, see section: Expo Dev Client
 
 ## Preparing
 
@@ -36,6 +36,23 @@ yarn android
 
 # Android - with INCORRECT pinning keys
 yarn android:incorrect
+```
+
+## Expo Dev Client
+
+* v2.3.0: Build error on iOS
+
+```
+<module-includes>:1:9: note: in file included from <module-includes>:1:
+#import "expo-dev-launcher-umbrella.h"
+        ^
+/Users/chakrit/Projects/test-expo-ssl-pinning-1/ios/Pods/Headers/Public/EXDevLauncher/expo-dev-launcher-umbrella.h:16:9: note: in file included from /Users/chakrit/Projects/test-expo-ssl-pinning-1/ios/Pods/Headers/Public/EXDevLauncher/expo-dev-launcher-umbrella.h:16:
+#import "EXDevLauncher/EXDevLauncherController.h"
+        ^
+/Users/chakrit/Projects/test-expo-ssl-pinning-1/ios/Pods/Headers/Private/expo-dev-launcher/EXDevLauncher/EXDevLauncherController.h:6:9: error: 'EXUpdatesInterface/EXUpdatesInterface-Swift.h' file not found
+#import <EXUpdatesInterface/EXUpdatesInterface-Swift.h>
+        ^
+<unknown>:0: error: could not build Objective-C module 'EXDevLauncher'
 ```
 
 ## Braze SDK
