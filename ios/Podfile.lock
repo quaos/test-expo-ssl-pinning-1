@@ -1,4 +1,5 @@
 PODS:
+  - ASN1Decoder (1.9.0)
   - boost (1.76.0)
   - Branch (1.43.2)
   - braze-react-native-sdk (8.3.0):
@@ -12,6 +13,8 @@ PODS:
   - BrazeUI (7.5.0):
     - BrazeKit (= 7.5.0)
   - DoubleConversion (1.1.6)
+  - EASClient (0.5.1):
+    - ExpoModulesCore
   - EXApplication (5.3.1):
     - ExpoModulesCore
   - EXConstants (14.4.2):
@@ -114,6 +117,15 @@ PODS:
   - EXSplashScreen (0.20.5):
     - ExpoModulesCore
     - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+  - EXStructuredHeaders (3.1.2)
+  - EXUpdates (0.16.4):
+    - ASN1Decoder (~> 1.8)
+    - EASClient
+    - EXManifests
+    - ExpoModulesCore
+    - EXStructuredHeaders
+    - EXUpdatesInterface
     - React-Core
   - EXUpdatesInterface (0.9.3)
   - FBLazyVector (0.72.6)
@@ -696,6 +708,7 @@ DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - "braze-react-native-sdk (from `../node_modules/@braze/react-native-sdk`)"
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - EASClient (from `../node_modules/expo-eas-client/ios`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
@@ -712,6 +725,8 @@ DEPENDENCIES:
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
+  - EXStructuredHeaders (from `../node_modules/expo-structured-headers/ios`)
+  - EXUpdates (from `../node_modules/expo-updates/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -764,6 +779,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ASN1Decoder
     - Branch
     - BrazeKit
     - BrazeLocation
@@ -795,6 +811,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@braze/react-native-sdk"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  EASClient:
+    :path: "../node_modules/expo-eas-client/ios"
   EXApplication:
     :path: "../node_modules/expo-application/ios"
   EXConstants:
@@ -827,6 +845,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-modules-core"
   EXSplashScreen:
     :path: "../node_modules/expo-splash-screen/ios"
+  EXStructuredHeaders:
+    :path: "../node_modules/expo-structured-headers/ios"
+  EXUpdates:
+    :path: "../node_modules/expo-updates/ios"
   EXUpdatesInterface:
     :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
@@ -930,6 +952,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Simon-TechForm/google-maps-ios-utils.git
 
 SPEC CHECKSUMS:
+  ASN1Decoder: 4f4bbcaf1d1b8be56daa3280e82863a607f5bda9
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   Branch: 4ac024cb3c29b0ef628048694db3c4cfa679beb0
   braze-react-native-sdk: bb9725010d4fc4adabfe1001e60d2977df2ee30e
@@ -937,6 +960,7 @@ SPEC CHECKSUMS:
   BrazeLocation: 8a1f49517e1a14e25cd67560b740b5449215dc61
   BrazeUI: 3ed7ee01971c3e7a14ba7b6f1e3b1a32a89f1199
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
+  EASClient: 950674e1098ebc09c4c2cf064a61e42e84d9d4c6
   EXApplication: 042aa2e3f05258a16962ea1a9914bf288db9c9a1
   EXConstants: ce5bbea779da8031ac818c36bea41b10e14d04e1
   EXFileSystem: f8b838a880254de42a5a7da20ed5ce12e2697c1b
@@ -953,6 +977,8 @@ SPEC CHECKSUMS:
   ExpoKeepAwake: be4cbd52d9b177cde0fd66daa1913afa3161fc1d
   ExpoModulesCore: c480fd4e3c7c8e81f0a6ba3a7c56869f25fe016d
   EXSplashScreen: c0e7f2d4a640f3b875808ed0b88575538daf6d82
+  EXStructuredHeaders: f3a6d417d5d12ef369fd1a31320d1c188a1b0f4b
+  EXUpdates: 603c4dfec2ed9ef323dfbd9c59c946593d4d9a5c
   EXUpdatesInterface: e86394c0770f14eb96386cbb32be83fa6a97e8f9
   FBLazyVector: 748c0ef74f2bf4b36cfcccf37916806940a64c32
   FBReactNativeSpec: 966f29e4e697de53a3b366355e8f57375c856ad9
